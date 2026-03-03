@@ -1,0 +1,12 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "echo 'No build step needed for static site'"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
