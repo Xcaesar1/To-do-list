@@ -4,6 +4,7 @@ const todoList = document.getElementById('todoList');
 const pendingCount = document.getElementById('pendingCount');
 const completedCount = document.getElementById('completedCount');
 const emptyState = document.getElementById('emptyState');
+const clearCompletedBtn = document.getElementById('clearCompletedBtn');
 
 let todos = [];
 
@@ -107,9 +108,18 @@ function updateStats() {
 
     pendingCount.textContent = pending;
     completedCount.textContent = completed;
+    clearCompletedBtn.disabled = completed === 0;
+}
+
+function clearCompleted() {
+    todos = todos.filter(t => !t.completed);
+    saveTodos();
+    renderTodos();
+    updateStats();
 }
 
 addBtn.addEventListener('click', addTodo);
+clearCompletedBtn.addEventListener('click', clearCompleted);
 
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
